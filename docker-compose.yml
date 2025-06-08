@@ -1,0 +1,25 @@
+version: '3.7'
+
+networks:
+  greeny:
+    name: greeny-network
+
+volumes:
+  app-db-data-greeny:
+    name: app-db-data-greeny
+
+services:
+  db:
+    image: postgres
+    container_name: greeny-postgres
+    hostname: postgres
+    networks:
+      - greeny
+    volumes:
+     - app-db-data-greeny:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - ${POSTGRES_PORT}:5432
