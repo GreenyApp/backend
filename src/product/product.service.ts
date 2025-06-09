@@ -31,7 +31,9 @@ export class ProductService {
 
   async getAll(): Promise<Product[]> {
     try {
-      return await this.productRepository.find();
+      return await this.productRepository.find({
+        relations: ['user'],
+      });
     } catch (error) {
       throw new Error(`Failed: ${error.message}`);
     }

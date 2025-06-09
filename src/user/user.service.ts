@@ -16,7 +16,7 @@ export class UserService {
     const hashedPassword = await argon2.hash(createInput.password);
     const user = await this.userRepository.create({
       ...createInput,
-      isAdmin: false,
+      isAdmin: createInput.isAdmin || false,
       refreshTokenHash: null,
       passwordHash: hashedPassword,
     });

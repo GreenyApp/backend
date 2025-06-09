@@ -25,6 +25,8 @@ export class AuthController {
         throw new Error('You are not a admin');
       }
 
+      signUpInput.isAdmin = true;
+
       return await this.authService.signUp(signUpInput);
     } catch (e) {
       throw new HttpException(e.message, HttpStatus.BAD_REQUEST);

@@ -131,7 +131,7 @@ export class ProductController {
   @Put('/admin/:id')
   async updateByAdmin(
     @CurrentUser() user: User,
-    @Param() id: number,
+    @Param('id') id: number,
     @Body('code') code: string,
   ) {
     try {

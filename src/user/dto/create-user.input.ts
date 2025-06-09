@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateUserInput {
   @IsEmail()
@@ -6,4 +6,7 @@ export class CreateUserInput {
 
   @IsNotEmpty()
   password: string;
+
+  @IsOptional()
+  isAdmin?: boolean;
 }
