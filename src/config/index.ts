@@ -16,4 +16,8 @@ export default {
     refreshSecret: process.env.REFRESH_TOKEN_SECRET,
     refreshExpired: process.env.REFRESH_TOKEN_EXPIRATION,
   },
+  superAdmin: {
+    email: process.env.SUPER_ADMIN_EMAIL,
+    password: process.env.SUPER_ADMIN_PASSWORD,
+  },
 };

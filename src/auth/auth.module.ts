@@ -6,6 +6,7 @@ import { PassportModule } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import config from 'src/config';
 import { UserModule } from 'src/user/user.module';
+import { AdminBootstrapService } from './admin-bootstrap.service';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { UserModule } from 'src/user/user.module';
     forwardRef(() => UserModule),
   ],
 
-  providers: [JwtStrategy, AuthService],
+  providers: [JwtStrategy, AuthService, AdminBootstrapService],
   exports: [JwtModule, PassportModule],
   controllers: [AuthController],
 })

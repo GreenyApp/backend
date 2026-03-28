@@ -36,7 +36,11 @@ export class AuthController {
   @Post('/signUp')
   async signUp(@Body() signUpInput: SignUpDto) {
     try {
-      return await this.authService.signUp(signUpInput);
+      return await this.authService.signUp({
+        email: signUpInput.email,
+        password: signUpInput.password,
+        isAdmin: false,
+      });
     } catch (e) {
       throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
     }

@@ -46,6 +46,10 @@ export class UserService {
     await this.userRepository.update(userId, { passwordHash });
   }
 
+  async setAdminStatus(userId: number, isAdmin: boolean): Promise<void> {
+    await this.userRepository.update(userId, { isAdmin });
+  }
+
   async deleteUser(userId: number): Promise<void> {
     await this.userRepository.delete({ id: userId });
   }
